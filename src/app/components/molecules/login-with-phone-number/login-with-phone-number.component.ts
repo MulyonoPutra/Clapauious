@@ -1,4 +1,3 @@
-
 import { ChangeDetectionStrategy, Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -21,7 +20,6 @@ export class LoginWithPhoneNumberComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit', this.formGroup.value)
     this.submitted.emit(this.formGroup);
   }
 

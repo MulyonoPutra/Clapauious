@@ -2,14 +2,31 @@
   <div>
     <div>
       <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Email" autocomplete="email" [formControlName]="'username'">
+      </mat-form-field>
+      <control-messages [control]="formGroup.get('username')"></control-messages>
+    </div>
+    <div>
+      <mat-form-field class="w-full" appearance="outline">
         <mat-label>Email</mat-label>
         <input matInput placeholder="Email" autocomplete="email" [formControlName]="'email'">
       </mat-form-field>
     </div>
+    <control-messages [control]="$any(formGroup)?.controls?.email"></control-messages>
     <div>
       <mat-form-field class="w-full" appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="'confirmPassword'">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -27,13 +44,13 @@
       </div>
     </div>
     <div class="text-center">
-      <button class="login-btn" (click)="onSubmit()">Sign In</button>
+      <button class="login-btn" (click)="onSubmit()" [disabled]='formGroup.invalid'>Register</button>
     </div>
     <div class="mb-6 mt-6">
       <div class="flex items-center">
         <div class="line-divider"></div>
         <span class="text-divider">
-          or Sign In with
+          or Sign Up with
         </span>
         <div class="line-divider"></div>
       </div>
@@ -43,7 +60,7 @@
         <div class="login-btn-sosmed-icon">
           <img src="/assets/icon/svg/google.svg" alt="">
         </div>
-        Sign In with Google
+        Register with Google
       </a>
     </div>
     <div class="mt-4">
@@ -51,7 +68,7 @@
         <div class="login-btn-sosmed-icon">
           <img src="/assets/icon/svg/fb.svg" alt="">
         </div>
-        Sign In with Facebook
+        Register with Facebook
       </a>
     </div>
   </div>
