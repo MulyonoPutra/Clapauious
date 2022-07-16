@@ -56,11 +56,5 @@ export class RegisterComponent implements OnInit {
     console.log(`register with Phone` + this.registerPhoneNumberValue);
   }
 
-  disabled(event: any): void {
-    console.log(`disabled: ${event}`);
-  }
-
-
-
 
 }
