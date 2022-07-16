@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  
+  isList: number = 0;
+  isMenu: boolean = false;
+  isSearch: boolean = false;
 
   constructor() { }
 
