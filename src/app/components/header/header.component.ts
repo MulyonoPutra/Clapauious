@@ -10,19 +10,28 @@ export class HeaderComponent implements OnInit {
 
   isDropdownHidden = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   showNavbar(): void {
     this.isDropdownHidden = !this.isDropdownHidden;
   }
 
   navigate(url: string): void {
-    if(url === 'login'){
-      this.router.navigate(['/login']);
-    } else if(url === 'register'){
-      this.router.navigate(['/register']);
+    switch (url) {
+      case 'login':
+        this.router.navigate(['/login']);
+        break;
+      case 'register':
+        this.router.navigate(['/register']);
+        break;
+      case 'profile':
+        this.router.navigate(['/profile']);
+        break;
+
+      default:
+        break;
     }
   }
 
