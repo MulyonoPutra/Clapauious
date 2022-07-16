@@ -21,6 +21,8 @@ const routes: Routes = [
         (m) => m.RegisterModule
       ),
   },
+  { path: 'profile', loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'subscription', loadChildren: () => import('./modules/subscription/subscription.module').then(m => m.SubscriptionModule) },
 ];
 
 @NgModule({
