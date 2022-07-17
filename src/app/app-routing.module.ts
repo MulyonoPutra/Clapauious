@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TokenGuard } from './core/guard/token.guard';
 
 const routes: Routes = [
   {
@@ -25,6 +26,7 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () =>
       import('./modules/profile/profile.module').then((m) => m.ProfileModule),
+    canActivate: [TokenGuard],
   },
   {
     path: 'subscription',
@@ -37,6 +39,7 @@ const routes: Routes = [
     path: 'payment',
     loadChildren: () =>
       import('./modules/payment/payment.module').then((m) => m.PaymentModule),
+    canActivate: [TokenGuard],
   },
 ];
 
@@ -44,4 +47,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
