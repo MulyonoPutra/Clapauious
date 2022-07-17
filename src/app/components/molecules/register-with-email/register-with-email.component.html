@@ -3,9 +3,9 @@
     <div>
       <mat-form-field class="w-full" appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="Email" autocomplete="email" formControlName="username">
+        <input matInput placeholder="Email" autocomplete="email" formControlName="name">
       </mat-form-field>
-      <error-messages [control]="$any(formGroup).controls.username"></error-messages>
+      <error-messages [control]="$any(formGroup).controls.name"></error-messages>
       <!-- <div *ngIf="formGroup.get('username')?.valid" class="invalid-feedback"> -->
         <!-- <div>username is required</div> -->
       <!-- </div> -->

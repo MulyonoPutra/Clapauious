@@ -25,7 +25,7 @@ export class RegisterWithEmailComponent implements OnInit {
   }
 
   private registerEmailCtrl() {
-    this.formGroup?.addControl('username', new FormControl());
+    this.formGroup?.addControl('name', new FormControl());
     this.formGroup?.addControl('email', new FormControl());
     this.formGroup?.addControl('password', new FormControl());
   }
