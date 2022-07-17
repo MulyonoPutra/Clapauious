@@ -33,6 +33,11 @@ const routes: Routes = [
         (m) => m.SubscriptionModule
       ),
   },
+  {
+    path: 'payment',
+    loadChildren: () =>
+      import('./modules/payment/payment.module').then((m) => m.PaymentModule),
+  },
 ];
 
 @NgModule({
