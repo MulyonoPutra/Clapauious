@@ -11,6 +11,8 @@ import { MessagesService } from 'src/app/core/service/messages.service';
 import { UserService } from 'src/app/core/service/user.service';
 import { ProfilePayload } from '../../core/interface/profile';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadProfileDialogComponent } from 'src/app/components/molecules/upload-profile-dialog/upload-profile-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -34,11 +36,14 @@ export class ProfileComponent implements OnInit {
     private errorService: ErrorService,
     private authService: AuthService,
     private router: Router,
-  ) {}
+    public dialog: MatDialog,
+  ) { }
 
   ngOnInit(): void {
     this.initForms();
     this.findUserById();
+    console.log(this.profileForms.get('images')?.value);
+
   }
 
   get names() {
@@ -121,12 +126,30 @@ export class ProfileComponent implements OnInit {
   update() {
     const userId = this.profile._id;
     this.userService.update(userId, this.formCtrlValue).subscribe({
-     next: () => {
-      this.snackbar.success('Update successfully..', 1500);
-     },
-     error: (error) => {
-      this.errorService.getErrorMessage(error);
-    },
+      next: () => {
+        this.snackbar.success('Update successfully..', 1500);
+      },
+      error: (error) => {
+        this.errorService.getErrorMessage(error);
+      },
     })
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(UploadProfileDialogComponent, {
+      data: this.profileForms.value,
+    });
+
+    dialogRef.afterClosed().subscribe((base64) => {
+      this.profileForms.controls['images'].setValue(base64);
+    });
+  }
+
+  get imagesPreview() {
+    const value = this.profileForms.get('images')?.value;
+    if(value === ''){
+      return 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
+    }
+    return 'http://localhost:5000/' + value;
   }
 }

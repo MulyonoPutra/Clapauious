@@ -15,6 +15,8 @@ import { ValidationService } from '../core/service/validation.service';
 import { ErrorMessagesModule } from './atoms/error-messages-form/error.messages.module';
 import { SpinnerComponent } from './atoms/spinner/spinner.component';
 import { PricingComponent } from './atoms/pricing/pricing.component';
+import { UploadProfileDialogComponent } from './molecules/upload-profile-dialog/upload-profile-dialog.component';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { PricingComponent } from './atoms/pricing/pricing.component';
     RegisterWithPhoneNumberComponent,
     SpinnerComponent,
     PricingComponent,
+    UploadProfileDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -34,6 +37,7 @@ import { PricingComponent } from './atoms/pricing/pricing.component';
     ReactiveFormsModule,
     FormsModule,
     ErrorMessagesModule,
+    NgxDropzoneModule,
   ],
   exports: [
     HeaderComponent,
@@ -45,6 +49,7 @@ import { PricingComponent } from './atoms/pricing/pricing.component';
     RegisterWithPhoneNumberComponent,
     SpinnerComponent,
     PricingComponent,
+    UploadProfileDialogComponent,
   ],
   providers: [ValidationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

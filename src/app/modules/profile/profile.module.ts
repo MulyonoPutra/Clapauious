@@ -6,17 +6,19 @@ import { ProfileComponent } from './profile.component';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ErrorMessagesModule } from 'src/app/components/atoms/error-messages-form/error.messages.module';
-
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
-  declarations: [
-    ProfileComponent
-  ],
+  declarations: [ProfileComponent],
   imports: [
     CommonModule,
-    ProfileRoutingModule, MaterialModule, FormsModule,
-    ReactiveFormsModule, ErrorMessagesModule
+    ProfileRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ErrorMessagesModule,
+    ComponentsModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ProfileModule { }
+export class ProfileModule {}

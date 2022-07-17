@@ -21,10 +21,10 @@
             <div class="flex space-x-4">
               <div>
                 <img class="inline object-cover w-28 h-28 mr-2 rounded-full"
-                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
+                [src]=imagesPreview
                   alt="Profile image" />
                   <label class="block uppercase text-white text-xs font-bold mt-3 ml-2 cursor-pointer"
-                  htmlfor="grid-password">
+                  htmlfor="grid-password" (click)="openDialog()">
                   Upload Avatar
                 </label>
               </div>
@@ -44,7 +44,7 @@
                     <div class="relative w-full mb-3">
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label>Email address</mat-label>
-                        <input matInput placeholder="Email address" formControlName="email">
+                        <input matInput placeholder="Email address" formControlName="email" readonly>
                       </mat-form-field>
                     </div>
                   </div>
