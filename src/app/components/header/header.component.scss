@@ -2,7 +2,7 @@
   @apply max-w-7xl mx-auto px-4 sm:px-6;
 
   &-list {
-    @apply text-base font-medium text-gray-500 hover:text-gray-900;
+    @apply text-base font-medium text-gray-400 hover:text-white;
   }
   .container {
     @apply flex justify-between items-center border-b-2 border-slate-600 py-6 md:justify-start md:space-x-10;
@@ -17,12 +17,12 @@
   }
 
   .more-btn {
-      @apply text-gray-500  bg-slate-900 rounded-md inline-flex items-center text-base font-medium hover:text-gray-900;
+      @apply text-gray-400  bg-slate-900 rounded-md inline-flex items-center text-base font-medium hover:text-white;
     }
 
   .btn {
     &-login {
-      @apply whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900;
+      @apply whitespace-nowrap text-base font-medium text-gray-400 hover:text-white;
     }
 
     &-register {
