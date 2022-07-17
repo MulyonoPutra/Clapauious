@@ -35,10 +35,10 @@
                     <div class="relative w-full mb-3">
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input matInput placeholder="Username" formControlName="username">
+                        <input matInput placeholder="Username" formControlName="name">
                       </mat-form-field>
                     </div>
-                    <error-messages [control]="$any(profileForms).control?.username"></error-messages>
+                    <error-messages [control]="$any(profileForms).control?.name"></error-messages>
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
@@ -60,9 +60,7 @@
               </div>
             </div>
 
-
             <hr class="mt-6 border-b-1 border-blueGray-300">
-
             <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
               Contact Information
             </h6>
@@ -72,6 +70,14 @@
                   <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Address</mat-label>
                     <input matInput placeholder="Address" formControlName="address">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="w-full lg:w-12/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="State" formControlName="state">
                   </mat-form-field>
                 </div>
               </div>
@@ -106,8 +112,8 @@
               <div class="w-full lg:w-12/12 px-4">
                 <div class="relative w-full mb-3">
                   <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>About Me</mat-label>
-                    <textarea matInput placeholder="About Me"></textarea>
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="About Me" formControlName="description"></textarea>
                   </mat-form-field>
                 </div>
               </div>

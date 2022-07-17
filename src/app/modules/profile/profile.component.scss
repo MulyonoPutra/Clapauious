@@ -13,7 +13,12 @@ $font-disable: #b5b5b5;
         color: white;
      }
   }
+
+  .mat-input-element::placeholder{
+    color: $font-disable;
+  }
 }
+
 
 .update {
   &-btn {
@@ -26,3 +31,18 @@ $font-disable: #b5b5b5;
     }
   }
 }
+
+input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+}
+
+textarea {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+}
+

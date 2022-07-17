@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Profile } from '../interface/profile';
+import { ProfilePayload } from '../interface/profile';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  findUserById(id: string): Observable<Profile> {
-    return this.http.get<Profile>(`${this.endpoint}/user/${id}`);
+  findUserById(id: string): Observable<ProfilePayload> {
+    return this.http.get<ProfilePayload>(`${this.endpoint}/auth/${id}`);
   }
 
 }

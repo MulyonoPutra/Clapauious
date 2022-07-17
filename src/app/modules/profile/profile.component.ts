@@ -1,51 +1,69 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms'
+import {
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+  FormControl,
+} from '@angular/forms';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { ErrorService } from 'src/app/core/service/error.service';
+import { MessagesService } from 'src/app/core/service/messages.service';
+import { UserService } from 'src/app/core/service/user.service';
+import { ProfilePayload } from '../../core/interface/profile';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-
   isList: number = 0;
   isMenu: boolean = false;
   isSearch: boolean = false;
 
-  profileForms!:  UntypedFormGroup;
+  profileForms!: UntypedFormGroup;
+  profile!: ProfilePayload;
 
-  constructor(private fb: UntypedFormBuilder) { }
+  constructor(
+    private fb: UntypedFormBuilder,
+    private tokenService: AuthService,
+    private userService: UserService,
+    private snackbar: MessagesService,
+    private errorService: ErrorService
+  ) {}
 
   ngOnInit(): void {
     this.initForms();
-    console.log(this.usernames)
+    this.findUserById();
   }
 
-  get usernames () {
-    return this.profileForms?.controls?.username.errors as FormControl;
+  get names() {
+    return this.profileForms?.controls?.name.errors as FormControl;
   }
 
   initForms(): void {
     this.profileForms = this.fb.group({
-      username: ['', Validators.required],
-      profilePicture: [''],
+      name: ['', Validators.required],
+      images: [''],
       phone: ['', [Validators.required]],
       email: ['', Validators.required],
       address: ['', Validators.required],
+      state: ['', Validators.required],
       city: ['', Validators.required],
       zipCode: ['', Validators.required],
       country: ['', Validators.required],
       description: [''],
-    })
+    });
   }
 
   get formCtrlValue() {
     return {
-      username: this.profileForms.get('username')?.value,
-      profilePicture: this.profileForms.get('profilePicture')?.value,
+      name: this.profileForms.get('name')?.value,
+      images: this.profileForms.get('images')?.value,
       phone: this.profileForms.get('phone')?.value,
       email: this.profileForms.get('email')?.value,
       address: this.profileForms.get('address')?.value,
+      state: this.profileForms.get('state')?.value,
       city: this.profileForms.get('city')?.value,
       zipCode: this.profileForms.get('zipCode')?.value,
       country: this.profileForms.get('country')?.value,
@@ -54,7 +72,49 @@ export class ProfileComponent implements OnInit {
   }
 
   update() {
-    console.log(this.formCtrlValue)
+    console.log(this.formCtrlValue);
   }
 
+  findUserById(): void {
+    if (this.tokenService.loadToken()) {
+      const userId = this.tokenService.getId();
+      this.userService.findUserById(userId).subscribe({
+        next: (response) => {
+          this.profile = {
+            _id: response._id,
+            name: response.name,
+            email: response.email,
+            phone: response.phone,
+            images: response.images,
+            address: response.address,
+            city: response.city,
+            state: response.state,
+            country: response.country,
+            zipCode: response.zipCode,
+            description: response.description,
+          };
+
+          this.prepopulate();
+        },
+        error: (error) => {
+          this.errorService.getErrorMessage(error);
+        },
+      });
+    }
+  }
+
+  private prepopulate(): void {
+    this.profileForms.patchValue({
+      name: this.profile.name,
+      email: this.profile.email,
+      phone: this.profile.phone,
+      images: this.profile.images,
+      address: this.profile.address,
+      city: this.profile.city,
+      state: this.profile.state,
+      country: this.profile.country,
+      zipCode: this.profile.zipCode,
+      description: this.profile.description,
+    });
+  }
 }

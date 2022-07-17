@@ -14,7 +14,7 @@ export class RegisterService {
   constructor(private http: HttpClient) { }
 
   register(body: Register): Observable<RegisterResponse> {
-    return this.http.post<RegisterResponse>(`${this.endpoint}/user/register`, body);
+    return this.http.post<RegisterResponse>(`${this.endpoint}/auth/register`, body);
   }
 
 }
