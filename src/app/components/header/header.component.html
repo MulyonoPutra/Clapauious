@@ -22,7 +22,7 @@
         <div class="relative">
           <button (click)="showNavbar()" type="button" class="more-btn" aria-expanded="false">
             <span>More</span>
-            <img src="../../../assets/icon/svg/arrow-down.svg" class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" alt="Burger Menu">
+            <img src="../../../assets/icon/svg/arrow-down.svg" class="text-gray-400 ml-2 h-3 w-3 group-hover:text-gray-500" alt="Burger Menu">
           </button>
 
           <div *ngIf="isDropdownHidden" class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
@@ -98,7 +98,7 @@
         <div class="relative">
           <button (click)="showAction()" type="button" class="more-btn" aria-expanded="false">
             <span> {{profile?.name}}</span>
-            <img src="../../../assets/icon/svg/arrow-down.svg" class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" alt="Burger Menu">
+            <img src="../../../assets/icon/svg/arrow-down.svg" class="ml-2 h-3 w-3" alt="Burger Menu">
           </button>
 
           <div *ngIf="isDropdownUser" class="absolute z-10 left-1/2 transform -translate-x-1/2 px-2 max-w-md sm:px-0">

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Profile } from 'src/app/core/interface/profile';
 import { AuthService } from 'src/app/core/service/auth.service';
+import { ErrorService } from 'src/app/core/service/error.service';
+import { MessagesService } from 'src/app/core/service/messages.service';
 import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
@@ -11,15 +13,18 @@ import { UserService } from 'src/app/core/service/user.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isDropdownHidden = false;
-  isDropdownUser = false;
-  isLoggedIn = false;
+  isLoggedIn: boolean = false;
+  isDropdownUser: boolean = false;
+  isDropdownHidden: boolean = false;
+
   profile!: Profile;
 
   constructor(
     private router: Router,
     private tokenService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private snackbar: MessagesService,
+    private errorService: ErrorService,
     ) { }
 
   ngOnInit(): void {
@@ -65,6 +70,9 @@ export class HeaderComponent implements OnInit {
               name: response.name,
               email: response.email
             }
+          },
+          error: (error) => {
+            this.errorService.getErrorMessage(error);
           }
         }
       )
