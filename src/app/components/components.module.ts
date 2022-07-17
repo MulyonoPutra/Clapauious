@@ -14,6 +14,7 @@ import { ErrorMessagesFormComponent } from './atoms/error-messages-form/error-me
 import { ValidationService } from '../core/service/validation.service';
 import { ErrorMessagesModule } from './atoms/error-messages-form/error.messages.module';
 import { SpinnerComponent } from './atoms/spinner/spinner.component';
+import { PricingComponent } from './atoms/pricing/pricing.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SpinnerComponent } from './atoms/spinner/spinner.component';
     RegisterWithEmailComponent,
     RegisterWithPhoneNumberComponent,
     SpinnerComponent,
+    PricingComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { SpinnerComponent } from './atoms/spinner/spinner.component';
     RegisterWithEmailComponent,
     RegisterWithPhoneNumberComponent,
     SpinnerComponent,
+    PricingComponent,
   ],
   providers: [ValidationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
