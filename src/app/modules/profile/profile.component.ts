@@ -10,6 +10,7 @@ import { ErrorService } from 'src/app/core/service/error.service';
 import { MessagesService } from 'src/app/core/service/messages.service';
 import { UserService } from 'src/app/core/service/user.service';
 import { ProfilePayload } from '../../core/interface/profile';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,7 @@ import { ProfilePayload } from '../../core/interface/profile';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+
   isList: number = 0;
   isMenu: boolean = false;
   isSearch: boolean = false;
@@ -29,7 +31,9 @@ export class ProfileComponent implements OnInit {
     private tokenService: AuthService,
     private userService: UserService,
     private snackbar: MessagesService,
-    private errorService: ErrorService
+    private errorService: ErrorService,
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -69,10 +73,6 @@ export class ProfileComponent implements OnInit {
       country: this.profileForms.get('country')?.value,
       description: this.profileForms.get('description')?.value,
     };
-  }
-
-  update() {
-    console.log(this.formCtrlValue);
   }
 
   findUserById(): void {
@@ -116,5 +116,17 @@ export class ProfileComponent implements OnInit {
       zipCode: this.profile.zipCode,
       description: this.profile.description,
     });
+  }
+
+  update() {
+    const userId = this.profile._id;
+    this.userService.update(userId, this.formCtrlValue).subscribe({
+     next: () => {
+      this.snackbar.success('Update successfully..', 1500);
+     },
+     error: (error) => {
+      this.errorService.getErrorMessage(error);
+    },
+    })
   }
 }
