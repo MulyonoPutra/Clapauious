@@ -28,7 +28,6 @@ export class RegisterWithEmailComponent implements OnInit {
     this.formGroup?.addControl('username', new FormControl());
     this.formGroup?.addControl('email', new FormControl());
     this.formGroup?.addControl('password', new FormControl());
-    this.formGroup?.addControl('confirmPassword', new FormControl());
   }
 
   get f(): { [key: string]: AbstractControl } {

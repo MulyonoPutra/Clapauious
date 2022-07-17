@@ -29,11 +29,7 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       email: ['', [Validators.required, ValidationService.emailValidator]],
       password: ['', [Validators.required, ValidationService.passwordValidator]],
-      confirmPassword: ['', Validators.required]
-    },
-      {
-        validator: ValidationService.confirmPasswordValidator('password', 'confirmPassword')
-      }
+    }
     )
   }
 
@@ -42,7 +38,6 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.required],
       phone: ['', Validators.required],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required]
     })
   }
 
