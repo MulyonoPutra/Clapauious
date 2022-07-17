@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Profile } from 'src/app/core/interface/profile';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { UserService } from 'src/app/core/service/user.service';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +12,17 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   isDropdownHidden = false;
+  profile!: Profile;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private tokenService: AuthService,
+    private userService: UserService
+    ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.findUserById();
+  }
 
   showNavbar(): void {
     this.isDropdownHidden = !this.isDropdownHidden;
@@ -34,6 +44,24 @@ export class HeaderComponent implements OnInit {
         break;
       default:
         break;
+    }
+  }
+
+  findUserById() {
+    if(this.tokenService.loadToken()){
+      const userId = this.tokenService.getId();
+      this.userService.findUserById(userId).subscribe(
+        {
+          next: (response) => {
+            this.profile = {
+              _id: response._id,
+              name: response.name,
+              email: response.email
+            }
+          }
+        }
+      )
+
     }
   }
 
