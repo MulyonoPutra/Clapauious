@@ -1,10 +1,10 @@
-<section class="py-1 bg-blueGray-50">
+<section class="py-1 bg-slate-700">
   <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
     <form [formGroup]="profileForms">
-      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
-        <div class="rounded-t bg-white mb-0 px-6 py-6">
+      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-900 border-0">
+        <div class="rounded-t  bg-slate-900 mb-0 px-6 py-6">
           <div class="text-center flex justify-between">
-            <h6 class="text-blueGray-700 text-xl font-bold">
+            <h6 class="text-white text-xl font-bold">
               My account
             </h6>
             <button
@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+            <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
               User Information
             </h6>
             <div class="flex space-x-4">
@@ -23,7 +23,7 @@
                 <img class="inline object-cover w-32 h-28 mr-2 rounded-full"
                   src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
                   alt="Profile image" />
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mt-3 cursor-pointer"
+                  <label class="block uppercase text-white text-xs font-bold mt-3 cursor-pointer"
                   htmlfor="grid-password">
                   Upload Avatar
                 </label>
@@ -33,20 +33,15 @@
                 <div class="flex flex-wrap">
                   <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
-                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                        Username
-                      </label>
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label>Username</mat-label>
                         <input matInput placeholder="Username" formControlName="username">
                       </mat-form-field>
                     </div>
+                    <error-messages [control]="$any(profileForms).control?.username"></error-messages>
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
-                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                        Email address
-                      </label>
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label>Email address</mat-label>
                         <input matInput placeholder="Email address" formControlName="email">
@@ -55,9 +50,6 @@
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
-                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                        Phone Number
-                      </label>
                       <mat-form-field class="w-full" appearance="outline">
                         <mat-label>Phone Number</mat-label>
                         <input matInput placeholder="Phone Number" formControlName="phone">
@@ -71,15 +63,12 @@
 
             <hr class="mt-6 border-b-1 border-blueGray-300">
 
-            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+            <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
               Contact Information
             </h6>
             <div class="flex flex-wrap">
               <div class="w-full lg:w-12/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                    Address
-                  </label>
                   <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Address</mat-label>
                     <input matInput placeholder="Address" formControlName="address">
@@ -88,9 +77,6 @@
               </div>
               <div class="w-full lg:w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                    City
-                  </label>
                   <mat-form-field class="w-full" appearance="outline">
                     <mat-label>City</mat-label>
                     <input matInput placeholder="City" formControlName="city">
@@ -99,9 +85,6 @@
               </div>
               <div class="w-full lg:w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                    Country
-                  </label>
                   <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Country</mat-label>
                     <input matInput placeholder="Country" formControlName="country">
@@ -110,9 +93,6 @@
               </div>
               <div class="w-full lg:w-4/12 px-4">
                 <div class="relative w-full mb-3">
-                  <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                    Postal Code
-                  </label>
                   <mat-form-field class="w-full" appearance="outline">
                     <mat-label>Postal Code</mat-label>
                     <input matInput placeholder="Postal Code" formControlName="zipCode">
@@ -121,17 +101,13 @@
               </div>
             </div>
 
-            <hr class="mt-6 border-b-1 border-blueGray-300">
-
-            <h6 class="text-blueGray-400 text-sm mt-3 mb-4 font-bold uppercase">
-              About Me
-            </h6>
+            <hr class="mb-3 mt-6 border-b-1 border-blueGray-300">
             <div class="flex flex-wrap">
               <div class="w-full lg:w-12/12 px-4">
                 <div class="relative w-full mb-3">
                   <mat-form-field class="w-full" appearance="outline">
-                    <mat-label>Leave a comment</mat-label>
-                    <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                    <mat-label>About Me</mat-label>
+                    <textarea matInput placeholder="About Me"></textarea>
                   </mat-form-field>
                 </div>
               </div>

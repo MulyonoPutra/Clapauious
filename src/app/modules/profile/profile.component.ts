@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms'
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-profile',
@@ -18,6 +18,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForms();
+    console.log(this.usernames)
+  }
+
+  get usernames () {
+    return this.profileForms?.controls?.username.errors as FormControl;
   }
 
   initForms(): void {
@@ -42,7 +47,7 @@ export class ProfileComponent implements OnInit {
       email: this.profileForms.get('email')?.value,
       address: this.profileForms.get('address')?.value,
       city: this.profileForms.get('city')?.value,
-      zipCode: this.profileForms.get('city')?.value,
+      zipCode: this.profileForms.get('zipCode')?.value,
       country: this.profileForms.get('country')?.value,
       description: this.profileForms.get('description')?.value,
     };
