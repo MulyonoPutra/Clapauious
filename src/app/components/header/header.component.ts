@@ -29,10 +29,13 @@ export class HeaderComponent implements OnInit {
       case 'profile':
         this.router.navigate(['/profile']);
         break;
-
+      case 'payment':
+        this.router.navigate(['/payment']);
+        break;
       default:
         break;
     }
   }
+
 
 }

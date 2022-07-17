@@ -3,9 +3,12 @@
     <div>
       <mat-form-field class="w-full" appearance="outline">
         <mat-label>Username</mat-label>
-        <input matInput placeholder="Email" autocomplete="email" [formControlName]="'username'">
+        <input matInput placeholder="Email" autocomplete="email" formControlName="username">
       </mat-form-field>
-      <control-messages [control]="formGroup.get('username')"></control-messages>
+      <error-messages [control]="$any(formGroup).controls.username"></error-messages>
+      <!-- <div *ngIf="formGroup.get('username')?.valid" class="invalid-feedback"> -->
+        <!-- <div>username is required</div> -->
+      <!-- </div> -->
     </div>
     <div>
       <mat-form-field class="w-full" appearance="outline">
@@ -13,7 +16,7 @@
         <input matInput placeholder="Email" autocomplete="email" [formControlName]="'email'">
       </mat-form-field>
     </div>
-    <control-messages [control]="$any(formGroup)?.controls?.email"></control-messages>
+    <error-messages [control]="$any(formGroup)?.controls?.email"></error-messages>
     <div>
       <mat-form-field class="w-full" appearance="outline">
         <mat-label>Enter your password</mat-label>

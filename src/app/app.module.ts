@@ -25,5 +25,7 @@ import { CoreModule } from './core/core.module';
   providers: [ValidationService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  exports: [
+  ],
 })
 export class AppModule { }

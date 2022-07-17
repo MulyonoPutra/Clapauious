@@ -11,13 +11,11 @@ export class ValidationService {
 
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     let config: any = {
-      required: 'Required',
-      minimumContentLength: 'Content must be at least 100 characters',
-      minlength: `Minimum length ${validatorValue.requiredLength} characters`,
-      invalidPassword:
-        'Invalid password. Password must be at least 6 characters long, and contain a number.',
-      confirmPasswordValidator: `Passsword and Confirm Password didn't match.`,
-      invalidEmailAddress: 'Invalid email address',
+      'required': 'Required',
+      'invalidCreditCard': 'Is invalid credit card number',
+      'invalidEmailAddress': 'Invalid email address',
+      'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
+      'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
 
     return config[validatorName];
@@ -32,7 +30,6 @@ export class ValidationService {
   }
 
   static emailValidator(control: any) {
-    // RFC 2822 compliant regex
     if (control.value.match(Constant.EMAIL_REGEX)) {
       return null;
     } else {
@@ -41,8 +38,6 @@ export class ValidationService {
   }
 
   static passwordValidator(control: any) {
-    // {6,100}           - Assert password is between 6 and 100 characters
-    // (?=.*[0-9])       - Assert a string has at least one number
     if (control.value.match(Constant.PASSWORD_REGEX)) {
       return null;
     } else {
@@ -52,7 +47,7 @@ export class ValidationService {
 
 
 
-  public static confirmPasswordValidator(controlName: string, matchingControlName: string) {
+  static confirmPasswordValidator(controlName: string, matchingControlName: string) {
     return (formGroup: UntypedFormGroup) => {
       let control = formGroup.controls[controlName];
       let matchingControl = formGroup.controls[matchingControlName];

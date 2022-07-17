@@ -25,7 +25,7 @@
   @apply bg-indigo-600 text-white w-full;
   border: 1px solid black;
   border-radius: 5px;
-  height: 30px;
+  min-height: 40px !important;
   margin: 0px 1px;
   -webkit-animation-duration: calc(1s * 0.75);
   animation-duration: calc(1s * 0.75);
@@ -46,7 +46,6 @@ $disable: #eaeaea;
 $font-disable: #b5b5b5;
 
 .login {
-
   &-left {
     width: 44%;
 
@@ -132,8 +131,8 @@ $font-disable: #b5b5b5;
     }
 
     &-sosmed {
+      @apply bg-slate-700;
       padding: 12px 30px;
-      background: #ffffff;
       border: 1px solid #d8d8d8;
       box-sizing: border-box;
       border-radius: 4px;
@@ -197,7 +196,7 @@ $font-disable: #b5b5b5;
       font-weight: normal;
       font-size: 16px;
       line-height: 24px;
-      color: #b5b5b5;
+      color: #ffffff;
       margin-top: -8px;
     }
 
@@ -230,13 +229,23 @@ $font-disable: #b5b5b5;
       }
     }
 
+    ::ng-deep {
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+         color: white;
+      }
+      mat-form-field {
+         .mat-hint, input, ::placeholder, .mat-form-field-label {
+            color: white;
+         }
+      }
+   }
+
     ::ng-deep .mat-checkbox {
       &-inner-container {
         height: 20px;
         width: 20px;
       }
 
-      // /deep/ &.mat-checkbox
       &-label {
         font-style: normal;
         font-weight: 500;

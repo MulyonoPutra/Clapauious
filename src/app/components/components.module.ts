@@ -9,7 +9,11 @@ import { LoginWithPhoneNumberComponent } from './molecules/login-with-phone-numb
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterWithEmailComponent } from './molecules/register-with-email/register-with-email.component';
 import { RegisterWithPhoneNumberComponent } from './molecules/register-with-phone-number/register-with-phone-number.component';
-import { ErrorMessagesFormComponent } from './error-messages-form/error-messages-form.component';
+import { ErrorMessagesFormComponent } from './atoms/error-messages-form/error-messages-form.component';
+
+import { ValidationService } from '../core/service/validation.service';
+import { ErrorMessagesModule } from './atoms/error-messages-form/error.messages.module';
+import { SpinnerComponent } from './atoms/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -20,9 +24,15 @@ import { ErrorMessagesFormComponent } from './error-messages-form/error-messages
     LoginWithPhoneNumberComponent,
     RegisterWithEmailComponent,
     RegisterWithPhoneNumberComponent,
-    ErrorMessagesFormComponent,
+    SpinnerComponent,
   ],
-  imports: [CommonModule, MaterialModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ErrorMessagesModule,
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -31,8 +41,9 @@ import { ErrorMessagesFormComponent } from './error-messages-form/error-messages
     LoginWithPhoneNumberComponent,
     RegisterWithEmailComponent,
     RegisterWithPhoneNumberComponent,
-    ErrorMessagesFormComponent,
+    SpinnerComponent,
   ],
+  providers: [ValidationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentsModule {}
