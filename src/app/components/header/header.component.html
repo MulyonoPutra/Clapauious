@@ -93,17 +93,46 @@
           </div>
         </div>
       </nav>
-      <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-        <button class="btn-login"> {{profile?.name}} </button>
+
+      <div *ngIf="isLoggedIn" class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <div class="relative">
+          <button (click)="showAction()" type="button" class="more-btn" aria-expanded="false">
+            <span> {{profile?.name}}</span>
+            <img src="../../../assets/icon/svg/arrow-down.svg" class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" alt="Burger Menu">
+          </button>
+
+          <div *ngIf="isDropdownUser" class="absolute z-10 left-1/2 transform -translate-x-1/2 px-2 max-w-md sm:px-0">
+            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+              <div class="relative grid gap-6 bg-slate-900 px-5 sm:gap-8">
+              </div>
+              <div class="px-5  bg-slate-900 sm:px-8 sm:py-8">
+                <div>
+                  <ul role="list" class="mt-4 space-y-4">
+                    <li class="text-base truncate ">
+                      <a (click)="navigate('profile')" class="font-medium text-gray-400 hover:text-white cursor-pointer"> Profile Settings </a>
+                    </li>
+                  </ul>
+                  <ul role="list" class="mt-4 space-y-4">
+                    <li class="text-base truncate ">
+                      <a (click)="logout()" class="font-medium text-gray-400 hover:text-white cursor-pointer"> Sign Out </a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div *ngIf="profile?.name == null" class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+      <div *ngIf="!isLoggedIn" class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
         <button (click)="navigate('login')" class="btn-login"> Sign in </button>
         <button (click)="navigate('register')" class="btn-register"> Sign up </button>
       </div>
     </div>
   </div>
-  <div (click)="showNavbar()"  class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+
+  <div (click)="showNavbar()" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
     <div *ngIf="!isDropdownHidden"  class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5  bg-slate-900 divide-y-2 divide-slate-50">
       <div class="pt-5 pb-6 px-5">
         <div class="flex items-center justify-between">

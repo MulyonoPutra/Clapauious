@@ -12,6 +12,8 @@ import { UserService } from 'src/app/core/service/user.service';
 export class HeaderComponent implements OnInit {
 
   isDropdownHidden = false;
+  isDropdownUser = false;
+  isLoggedIn = false;
   profile!: Profile;
 
   constructor(
@@ -26,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   showNavbar(): void {
     this.isDropdownHidden = !this.isDropdownHidden;
+  }
+
+  showAction(): void {
+    this.isDropdownUser = !this.isDropdownUser;
   }
 
   navigate(url: string): void {
@@ -49,6 +55,7 @@ export class HeaderComponent implements OnInit {
 
   findUserById() {
     if(this.tokenService.loadToken()){
+      this.isLoggedIn = true;
       const userId = this.tokenService.getId();
       this.userService.findUserById(userId).subscribe(
         {
@@ -61,8 +68,16 @@ export class HeaderComponent implements OnInit {
           }
         }
       )
-
     }
+  }
+
+  logout() {
+    this.tokenService.logout();
+    this.isLoggedIn = false;
+    setTimeout(() => {
+      window.location.reload();
+      this.router.navigate(['/login']);
+    }, 1500);
   }
 
 
