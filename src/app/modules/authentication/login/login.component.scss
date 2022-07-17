@@ -77,7 +77,7 @@ $font-disable: #b5b5b5;
       font-size: 28px;
       line-height: 40px;
       text-align: center;
-      color: #4C4C4C;
+      color: white;
 
       @media(max-width: 767px) {
         font-size: 20px;
@@ -231,14 +231,19 @@ $font-disable: #b5b5b5;
 
     ::ng-deep {
       .mat-form-field-appearance-outline .mat-form-field-outline {
-         color: white;
+        color: white;
       }
+
       mat-form-field {
-         .mat-hint, input, ::placeholder, .mat-form-field-label {
-            color: white;
-         }
+
+        .mat-hint,
+        input,
+        ::placeholder,
+        .mat-form-field-label {
+          color: white;
+        }
       }
-   }
+    }
 
     ::ng-deep .mat-checkbox {
       &-inner-container {
@@ -325,4 +330,13 @@ input {
   font-weight: normal;
   font-size: 16px;
   color: #4c4c4c;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 3s;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-text-size-adjust: none;
 }

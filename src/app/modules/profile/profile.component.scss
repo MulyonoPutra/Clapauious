@@ -39,6 +39,16 @@ input {
   color: white;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 3s;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-text-size-adjust: none;
+}
+
+
 textarea {
   font-style: normal;
   font-weight: normal;
