@@ -1,3 +1,9 @@
+$primary-blue: #6251dc;
+$light-blue: #f4fbfd;
+$dark-purple: #342981;
+$disable: #eaeaea;
+$font-disable: #b5b5b5;
+
 ::ng-deep {
   .mat-form-field-appearance-outline .mat-form-field-outline {
      color: white;
@@ -6,5 +12,17 @@
      .mat-hint, input, ::placeholder, .mat-form-field-label {
         color: white;
      }
+  }
+}
+
+.update {
+  &-btn {
+    @apply bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150;
+
+    &:disabled {
+      background: $disable;
+      cursor: not-allowed;
+      color: $font-disable;
+    }
   }
 }
