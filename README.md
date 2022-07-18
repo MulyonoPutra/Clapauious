@@ -2,26 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![screencapture-localhost-4200-2022-07-18-11_53_44](https://user-images.githubusercontent.com/50153639/179447637-9d9ede3a-4827-4a14-b13f-fd38195fda87.png)
+![screencapture-localhost-4200-login-2022-07-18-11_55_01](https://user-images.githubusercontent.com/50153639/179447652-fb3c2d39-9bf4-4080-92a4-be0926e20ffc.png)
+![screencapture-localhost-4200-register-2022-07-18-11_55_19](https://user-images.githubusercontent.com/50153639/179447654-e1490e80-402b-4756-8025-56d2ca3a39ea.png)
+![screencapture-localhost-4200-payment-2022-07-18-11_55_44](https://user-images.githubusercontent.com/50153639/179447658-317ee7a1-4a6f-478d-b497-b3c6fc7541ab.png)
+![screencapture-localhost-4200-profile-2022-07-18-11_55_57](https://user-images.githubusercontent.com/50153639/179447660-962feb03-3745-4cc5-823d-dee8daf8f733.png)
+![screencapture-localhost-4200-profile-2022-07-18-11_56_17](https://user-images.githubusercontent.com/50153639/179447661-9ea52dcb-7ea0-40b8-abc8-e961493350a6.png)
