@@ -41,6 +41,14 @@ const routes: Routes = [
       import('./modules/payment/payment.module').then((m) => m.PaymentModule),
     canActivate: [TokenGuard],
   },
+  {
+    path: 'movie-details/:id',
+    loadChildren: () =>
+      import('./modules/movie-details/movie-details.module').then(
+        (m) => m.MovieDetailsModule
+      ),
+    canActivate: [TokenGuard],
+  },
 ];
 
 @NgModule({

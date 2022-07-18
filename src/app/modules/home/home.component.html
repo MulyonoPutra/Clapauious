@@ -19,7 +19,7 @@
 
   <section>
     <div class="mr-5 mt-5 text-sm absolute right-0">
-      <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all <span aria-hidden="true">&rarr;</span></a>
+      <a [routerLink]="['/movie-details']" class="font-medium text-indigo-600 hover:text-indigo-500"> View all <span aria-hidden="true">&rarr;</span></a>
     </div>
     <div class="flex flex-row">
       <div *ngFor="let data of movies | slice:1:5">

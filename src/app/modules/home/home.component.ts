@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
   findPopularMovies(): void {
     this.movieService.findPopularMovies().subscribe({
       next: (response) => {
-        console.log(response)
         this.movies = response.results;
       },
       error: (error) => {
