@@ -17,6 +17,7 @@ import { SpinnerComponent } from './atoms/spinner/spinner.component';
 import { PricingComponent } from './atoms/pricing/pricing.component';
 import { UploadProfileDialogComponent } from './molecules/upload-profile-dialog/upload-profile-dialog.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { CardAnimationsComponent } from './molecules/card-animations/card-animations.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     SpinnerComponent,
     PricingComponent,
     UploadProfileDialogComponent,
+    CardAnimationsComponent,
   ],
   imports: [
     CommonModule,
@@ -50,6 +52,7 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
     SpinnerComponent,
     PricingComponent,
     UploadProfileDialogComponent,
+    CardAnimationsComponent,
   ],
   providers: [ValidationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

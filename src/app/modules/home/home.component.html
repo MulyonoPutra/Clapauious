@@ -3,94 +3,27 @@
   <section>
     <div class="bg-img">
       <div class="center">
-        <p class="animate__animated animate__heartBeat animate__delay-1s">Get endless entertainment, live sports, education and the shows and movies you love.</p>
+        <p class="animate__animated animate__heartBeat animate__delay-1s">Get
+          endless entertainment, live sports,
+          education and the shows and movies you love.</p>
       </div>
       <div class="subtitle">
-        <span>Ready to watch? Enter your email to create or restart your membership.</span>
+        <span>Ready to watch? Enter your email to create or restart your
+          membership.</span>
         <br>
-        <button class="login-btn animate__animated animate__jackInTheBox animate__delay-1s">Get the bundle</button>
+        <button class="login-btn animate__animated animate__jackInTheBox
+          animate__delay-1s">Get the bundle</button>
       </div>
     </div>
   </section>
 
   <section>
+    <div class="mr-5 mt-5 text-sm absolute right-0">
+      <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all <span aria-hidden="true">&rarr;</span></a>
+    </div>
     <div class="flex flex-row">
-      <div>
-        <div class="wrapper">
-          <div class="card">
-            <img
-              src="https://marketplace.canva.com/EAE4sZqehD4/1/0/1131w/canva-gray-%26-black-monochrome-blind-forest-movie-present-poster-PRZ-uOOwgf0.jpg">
-            <div class="descriptions">
-              <h1>Equalizer 2</h1>
-              <p>
-                If you have a problem and there is nowhere else to turn, the mysterious and elusive Robert McCall will
-                deliver the vigilante justice you seek. This time, however, McCall's past cuts especially close to home
-                when thugs kill Susan Plummer -- his best friend and former colleague. Now out for revenge, McCall must
-                take on a crew of highly trained assassins who'll stop at nothing to destroy him. </p>
-              <button class="p-2 mt-12">
-                Play trailer on YouTube
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="wrapper">
-          <div class="card">
-            <img
-              src="https://marketplace.canva.com/EAE4sZqehD4/1/0/1131w/canva-gray-%26-black-monochrome-blind-forest-movie-present-poster-PRZ-uOOwgf0.jpg">
-            <div class="descriptions">
-              <h1>Equalizer 2</h1>
-              <p>
-                If you have a problem and there is nowhere else to turn, the mysterious and elusive Robert McCall will
-                deliver the vigilante justice you seek. This time, however, McCall's past cuts especially close to home
-                when thugs kill Susan Plummer -- his best friend and former colleague. Now out for revenge, McCall must
-                take on a crew of highly trained assassins who'll stop at nothing to destroy him. </p>
-              <button class="p-2 mt-12">
-                Play trailer on YouTube
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="wrapper">
-          <div class="card">
-            <img
-              src="https://marketplace.canva.com/EAE4sZqehD4/1/0/1131w/canva-gray-%26-black-monochrome-blind-forest-movie-present-poster-PRZ-uOOwgf0.jpg">
-            <div class="descriptions">
-              <h1>Equalizer 2</h1>
-              <p>
-                If you have a problem and there is nowhere else to turn, the mysterious and elusive Robert McCall will
-                deliver the vigilante justice you seek. This time, however, McCall's past cuts especially close to home
-                when thugs kill Susan Plummer -- his best friend and former colleague. Now out for revenge, McCall must
-                take on a crew of highly trained assassins who'll stop at nothing to destroy him. </p>
-              <button class="p-2 mt-12">
-                Play trailer on YouTube
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <div class="wrapper">
-          <div class="card">
-            <img
-              src="https://marketplace.canva.com/EAE4sZqehD4/1/0/1131w/canva-gray-%26-black-monochrome-blind-forest-movie-present-poster-PRZ-uOOwgf0.jpg">
-            <div class="descriptions">
-              <h1>Equalizer 2</h1>
-              <p>
-                If you have a problem and there is nowhere else to turn, the mysterious and elusive Robert McCall will
-                deliver the vigilante justice you seek. This time, however, McCall's past cuts especially close to home
-                when thugs kill Susan Plummer -- his best friend and former colleague. Now out for revenge, McCall must
-                take on a crew of highly trained assassins who'll stop at nothing to destroy him. </p>
-              <button class="p-2 mt-12">
-                Play trailer on YouTube
-              </button>
-            </div>
-          </div>
-        </div>
+      <div *ngFor="let data of movies | slice:1:5">
+        <app-card-animations [data]="data"></app-card-animations>
       </div>
     </div>
   </section>
@@ -98,10 +31,14 @@
   <section>
     <div class="bg-sports">
       <div class="center">
-        <p class="animate__animated animate__heartBeat animate__delay-1s">Live Sports</p>
+        <p class="animate__animated animate__heartBeat animate__delay-1s">Live
+          Sports</p>
       </div>
       <div class="subtitle">
-        <span class="animate__animated animate__zoomInLeft animate__delay-1s">Catch your games at home or on the go. Stream live games from Premiere League, Serie A, La Liga, UEFA Champions League and many more.</span>
+        <span class="animate__animated animate__zoomInLeft animate__delay-1s">Catch
+          your games at home or on the go.
+          Stream live games from Premiere League, Serie A, La Liga, UEFA
+          Champions League and many more.</span>
       </div>
     </div>
   </section>
