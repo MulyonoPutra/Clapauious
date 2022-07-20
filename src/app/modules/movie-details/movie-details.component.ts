@@ -6,7 +6,6 @@ import { MessagesService } from 'src/app/core/service/messages.service';
 import { MoviesService } from 'src/app/core/service/movies.service';
 import { UserService } from 'src/app/core/service/user.service';
 import { MovieDetails } from '../../core/interface/movie-details';
-import { Genre } from './../../core/interface/movie-details';
 
 @Component({
   selector: 'app-movie-details',
@@ -15,7 +14,6 @@ import { Genre } from './../../core/interface/movie-details';
 })
 export class MovieDetailsComponent implements OnInit {
   movie!: MovieDetails;
-  genre!: Genre [];
 
   imageConfig: string = 'https://image.tmdb.org/t/p/original/';
 
@@ -33,7 +31,6 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('id')!);
     this.findById();
   }
 
@@ -48,7 +45,6 @@ export class MovieDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id')!;
     this.movieService.findMovieById(id).subscribe({
       next: (data) => {
-
         this.movie = {
           title: data.title,
           tagline: data.tagline,
@@ -58,7 +54,6 @@ export class MovieDetailsComponent implements OnInit {
           vote_count: data.vote_count,
           genres: data.genres,
         };
-        console.log(data.genres);
       },
     });
   }

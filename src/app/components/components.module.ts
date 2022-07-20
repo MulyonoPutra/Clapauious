@@ -18,6 +18,8 @@ import { PricingComponent } from './atoms/pricing/pricing.component';
 import { UploadProfileDialogComponent } from './molecules/upload-profile-dialog/upload-profile-dialog.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { CardAnimationsComponent } from './molecules/card-animations/card-animations.component';
+import { CardResponsiveComponent } from './molecules/card-responsive/card-responsive.component';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { CardAnimationsComponent } from './molecules/card-animations/card-animat
     PricingComponent,
     UploadProfileDialogComponent,
     CardAnimationsComponent,
+    CardResponsiveComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +43,7 @@ import { CardAnimationsComponent } from './molecules/card-animations/card-animat
     FormsModule,
     ErrorMessagesModule,
     NgxDropzoneModule,
+    CoreModule
   ],
   exports: [
     HeaderComponent,
@@ -53,6 +57,7 @@ import { CardAnimationsComponent } from './molecules/card-animations/card-animat
     PricingComponent,
     UploadProfileDialogComponent,
     CardAnimationsComponent,
+    CardResponsiveComponent
   ],
   providers: [ValidationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

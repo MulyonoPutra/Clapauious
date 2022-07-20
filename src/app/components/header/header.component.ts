@@ -15,7 +15,9 @@ export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean = false;
   isDropdownUser: boolean = false;
-  isDropdownHidden: boolean = false;
+  isDropdownHidden: boolean = true;
+
+  public logo = 'https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg';
 
   profile!: Profile;
 

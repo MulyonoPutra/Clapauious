@@ -17,6 +17,10 @@ $font-disable: #b5b5b5;
         rgba(0, 0, 0, 0) 100%);
     background-blend-mode: color;
     height: 100vh;
+
+    @media (max-width: 768px) {
+      height: 60vh;
+    }
   }
 
   .bg-sports {
@@ -35,15 +39,19 @@ $font-disable: #b5b5b5;
   }
 
   .center {
-    @apply text-gray-400 font-bold text-center;
-    justify-content: center;
+    @apply text-gray-400 font-bold text-center justify-center;
     padding: 20vh 20vh 0vh 20vh;
     font-size: 3rem;
 
+    @media (max-width: 768px) {
+      @apply text-gray-400 text-center p-8 justify-center;
+      font-size: 1.5rem;
+    }
+
   }
+
   .subtitle {
-    @apply text-gray-400 text-center;
-    justify-content: center;
+    @apply text-gray-400 text-center justify-center;
     padding-left:0vh;
     font-size: 1rem;
   }
