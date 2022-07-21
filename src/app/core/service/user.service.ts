@@ -12,7 +12,7 @@ export class UserService {
 
   endpoint: string = environment.endpoint;
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   findUserById(id: string): Observable<ProfilePayload> {
     return this.http.get<ProfilePayload>(`${this.endpoint}/auth/${id}`);
@@ -42,24 +42,23 @@ export class UserService {
     country: string,
     zipCode: string,
     description: string
-
   ): Observable<any> {
     let token = this.auth.loadToken();
 
     const profileData = new FormData();
 
-    profileData.append("name", name);
-    profileData.append("email", email);
-    profileData.append("images", images);
-    profileData.append("phone", phone);
-    profileData.append("address", address);
-    profileData.append("city", city);
-    profileData.append("state", state);
-    profileData.append("country", country);
-    profileData.append("zipCode", zipCode);
-    profileData.append("description", description);
+    profileData.append('name', name);
+    profileData.append('email', email);
+    profileData.append('images', images);
+    profileData.append('phone', phone);
+    profileData.append('address', address);
+    profileData.append('city', city);
+    profileData.append('state', state);
+    profileData.append('country', country);
+    profileData.append('zipCode', zipCode);
+    profileData.append('description', description);
 
-
-    return this.http.put<any>(`${this.endpoint}/auth/update/${userId}`, profileData,);
+    return this.http.put<any>(`${this.endpoint}/auth/update/${userId}`, profileData);
+    
   }
 }
