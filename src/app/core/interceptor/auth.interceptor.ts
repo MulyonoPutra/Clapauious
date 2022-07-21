@@ -12,23 +12,26 @@ import { AuthService } from '../service/auth.service';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  constructor(private tokenService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.tokenService.getToken();
-    if (token != null) {
-      request.clone({
-        headers: request.headers.set('Authorization', 'Bearer ' + token)
+
+    const token = this.authService.loadToken();
+
+    if (token) {
+      request = request.clone({
+        setHeaders: { Authorization: `Bearer ${token}` }
       })
     }
     return next.handle(request).pipe(
       catchError((err) => {
         if (err.status === 401) {
-          this.tokenService.logout();
+          this.authService.logout();
         }
         const error = err.error.message || err.statusText;
         return throwError(error);
       })
     );
   }
+  
 }
