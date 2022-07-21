@@ -21,8 +21,8 @@ import { UploadProfileDialogComponent } from 'src/app/components/molecules/uploa
 })
 export class ProfileComponent implements OnInit {
 
-  isList: number = 0;
-  isMenu: boolean = false;
+  isList:   number = 0;
+  isMenu:   boolean = false;
   isSearch: boolean = false;
 
   profileForms!: UntypedFormGroup;
@@ -41,16 +41,12 @@ export class ProfileComponent implements OnInit {
     private errorService: ErrorService,
     private authService: AuthService,
     private router: Router,
-    public dialog: MatDialog
+    public  dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
     this.initForms();
     this.findUserById();
-  }
-
-  get names() {
-    return this.profileForms?.controls?.name.errors as FormControl;
   }
 
   initForms(): void {
@@ -70,16 +66,16 @@ export class ProfileComponent implements OnInit {
 
   get formCtrlValue() {
     return {
-      name: this.profileForms.get('name')?.value,
-      images: this.profileForms.get('images')?.value,
-      phone: this.profileForms.get('phone')?.value,
-      email: this.profileForms.get('email')?.value,
-      address: this.profileForms.get('address')?.value,
-      state: this.profileForms.get('state')?.value,
-      city: this.profileForms.get('city')?.value,
-      zipCode: this.profileForms.get('zipCode')?.value,
-      country: this.profileForms.get('country')?.value,
-      description: this.profileForms.get('description')?.value,
+      name:         this.profileForms.get('name')?.value,
+      images:       this.profileForms.get('images')?.value,
+      phone:        this.profileForms.get('phone')?.value,
+      email:        this.profileForms.get('email')?.value,
+      address:      this.profileForms.get('address')?.value,
+      state:        this.profileForms.get('state')?.value,
+      city:         this.profileForms.get('city')?.value,
+      zipCode:      this.profileForms.get('zipCode')?.value,
+      country:      this.profileForms.get('country')?.value,
+      description:  this.profileForms.get('description')?.value,
     };
   }
 
@@ -113,15 +109,15 @@ export class ProfileComponent implements OnInit {
 
   private prepopulate(): void {
     this.profileForms.patchValue({
-      name: this.profile.name,
-      email: this.profile.email,
-      phone: this.profile.phone,
-      images: this.profile.images,
-      address: this.profile.address,
-      city: this.profile.city,
-      state: this.profile.state,
-      country: this.profile.country,
-      zipCode: this.profile.zipCode,
+      name:        this.profile.name,
+      email:       this.profile.email,
+      phone:       this.profile.phone,
+      images:      this.profile.images,
+      address:     this.profile.address,
+      city:        this.profile.city,
+      state:       this.profile.state,
+      country:     this.profile.country,
+      zipCode:     this.profile.zipCode,
       description: this.profile.description,
     });
   }
@@ -135,7 +131,9 @@ export class ProfileComponent implements OnInit {
       reader.onload = () => {
         this.imageData = reader.result as string;
       };
+
       reader.readAsDataURL(file);
+
     }
   }
 
@@ -155,15 +153,15 @@ export class ProfileComponent implements OnInit {
     const userId = this.profile._id;
 
     const profiles = {
-      name: this.profileForms.get('name')?.value,
-      email: this.profileForms.get('email')?.value,
-      phone: this.profileForms.get('phone')?.value,
-      images: this.profileForms.get('images')?.value,
-      address: this.profileForms.get('address')?.value,
-      city: this.profileForms.get('city')?.value,
-      state: this.profileForms.get('state')?.value,
-      country: this.profileForms.get('country')?.value,
-      zipCode: this.profileForms.get('zipCode')?.value,
+      name:        this.profileForms.get('name')?.value,
+      email:       this.profileForms.get('email')?.value,
+      phone:       this.profileForms.get('phone')?.value,
+      images:      this.profileForms.get('images')?.value,
+      address:     this.profileForms.get('address')?.value,
+      city:        this.profileForms.get('city')?.value,
+      state:       this.profileForms.get('state')?.value,
+      country:     this.profileForms.get('country')?.value,
+      zipCode:     this.profileForms.get('zipCode')?.value,
       description: this.profileForms.get('description')?.value,
     };
 
