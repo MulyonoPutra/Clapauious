@@ -25,7 +25,6 @@ import { AuthInterceptor } from './core/interceptor/auth.interceptor';
     ComponentsModule,
     HttpClientModule
   ],
-  providers: [ValidationService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
