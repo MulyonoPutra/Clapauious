@@ -1,15 +1,15 @@
 <section class="py-1 bg-slate-700">
   <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
     <form [formGroup]="profileForms" autocomplete="off" >
-      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-900 border-0">
-        <div class="rounded-t  bg-slate-900 mb-0 px-6 py-6">
+      <div class="profile">
+        <div class="header">
           <div class="text-center flex justify-between">
-            <h6 class="text-white text-xl font-bold">
+            <h6 class="title">
               Profile Settings
             </h6>
             <button
               class="update-btn"
-              type="button" [disabled]="!profileForms.valid" (click)="update()">
+              type="button" [disabled]="!profileForms.valid" (click)="updated()">
               Update
             </button>
           </div>
@@ -20,13 +20,12 @@
             </h6>
             <div class="flex space-x-4">
               <div>
-                <img class="inline object-cover w-28 h-28 mr-2 rounded-full"
-                [src]=imagesPreview
-                  alt="Profile image" />
+                <img class="inline object-cover w-28 h-28 mr-2 rounded-full" [src]=imagesPreview alt="Profile image" />
                   <label class="block uppercase text-white text-xs font-bold mt-3 ml-2 cursor-pointer"
-                  htmlfor="grid-password" (click)="openDialog()">
+                  htmlfor="grid-password">
                   Upload Avatar
-                </label>
+                  <input type="file" class="upload" accept="image/png, image/gif, image/jpeg" (change)="changeFile($event)" />
+                  </label>
               </div>
 
               <div>

@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/core/service/auth.service';
 import { ErrorService } from 'src/app/core/service/error.service';
 import { MessagesService } from 'src/app/core/service/messages.service';
 import { UserService } from 'src/app/core/service/user.service';
-import { ProfilePayload } from '../../core/interface/profile';
+import { ProfilePayload, Profiles } from '../../core/interface/profile';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { UploadProfileDialogComponent } from 'src/app/components/molecules/upload-profile-dialog/upload-profile-dialog.component';
@@ -28,6 +28,11 @@ export class ProfileComponent implements OnInit {
   profileForms!: UntypedFormGroup;
   profile!: ProfilePayload;
 
+  imageData!: string;
+  profiles!: Profiles;
+
+  host = 'http://localhost:5000/';
+
   constructor(
     private fb: UntypedFormBuilder,
     private tokenService: AuthService,
@@ -36,14 +41,12 @@ export class ProfileComponent implements OnInit {
     private errorService: ErrorService,
     private authService: AuthService,
     private router: Router,
-    public dialog: MatDialog,
-  ) { }
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.initForms();
     this.findUserById();
-    console.log(this.profileForms.get('images')?.value);
-
   }
 
   get names() {
@@ -52,15 +55,15 @@ export class ProfileComponent implements OnInit {
 
   initForms(): void {
     this.profileForms = this.fb.group({
-      name: ['', Validators.required],
-      images: [''],
-      phone: ['', [Validators.required]],
-      email: ['', Validators.required],
-      address: ['', Validators.required],
-      state: ['', Validators.required],
-      city: ['', Validators.required],
-      zipCode: ['', Validators.required],
-      country: ['', Validators.required],
+      name:     ['', Validators.required],
+      images:   [''],
+      phone:    [''],
+      email:    ['', Validators.required],
+      address:  ['', Validators.required],
+      state:    ['', Validators.required],
+      city:     ['', Validators.required],
+      zipCode:  ['', Validators.required],
+      country:  ['', Validators.required],
       description: [''],
     });
   }
@@ -123,6 +126,19 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  changeFile(event: any) {
+    const file = event.target.files[0]!;
+    this.profileForms.patchValue({ images: file });
+    const allowedMimeTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+    if (file && allowedMimeTypes.includes(file.type)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
   update() {
     const userId = this.profile._id;
     this.userService.update(userId, this.formCtrlValue).subscribe({
@@ -132,7 +148,52 @@ export class ProfileComponent implements OnInit {
       error: (error) => {
         this.errorService.getErrorMessage(error);
       },
-    })
+    });
+  }
+
+  updated() {
+    const userId = this.profile._id;
+
+    const profiles = {
+      name: this.profileForms.get('name')?.value,
+      email: this.profileForms.get('email')?.value,
+      phone: this.profileForms.get('phone')?.value,
+      images: this.profileForms.get('images')?.value,
+      address: this.profileForms.get('address')?.value,
+      city: this.profileForms.get('city')?.value,
+      state: this.profileForms.get('state')?.value,
+      country: this.profileForms.get('country')?.value,
+      zipCode: this.profileForms.get('zipCode')?.value,
+      description: this.profileForms.get('description')?.value,
+    };
+
+    this.userService
+      .updated(
+        userId,
+        profiles.name,
+        profiles.email,
+        profiles.images,
+        profiles.phone,
+        profiles.address,
+        profiles.city,
+        profiles.state,
+        profiles.country,
+        profiles.zipCode,
+        profiles.description
+      )
+      .subscribe({
+        next: () => {
+          this.snackbar.success('Update successfully..', 1500);
+          setTimeout(() => {
+            this.router.navigate(['/']).then(() => {
+              window.location.reload();
+            });
+          }, 1100);
+        },
+        error: (error) => {
+          this.errorService.getErrorMessage(error);
+        },
+      });
   }
 
   openDialog() {
@@ -147,9 +208,9 @@ export class ProfileComponent implements OnInit {
 
   get imagesPreview() {
     const value = this.profileForms.get('images')?.value;
-    if(value === ''){
-      return 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png'
+    if (value !== '') {
+      return this.host + value;
     }
-    return 'http://localhost:5000/' + value;
+    return value;
   }
 }

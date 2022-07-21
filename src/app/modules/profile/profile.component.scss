@@ -58,3 +58,23 @@ textarea {
   font-size: 16px;
   color: white;
 }
+
+
+.profile {
+  @apply relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-900 border-0;
+
+  .header {
+    @apply rounded-t  bg-slate-900 mb-0 px-6 py-6;
+
+    .title {
+      @apply text-white text-xl font-bold;
+    }
+  }
+
+  .upload {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
