@@ -1,0 +1,342 @@
+.example-input-label,
+.example-add-tab-button,
+.example-delete-tab-button {
+  margin: 8px;
+}
+
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+
+::ng-deep.mat-ink-bar {
+  display: none;
+}
+
+::ng-deep .mat-tab-header,
+.mat-tab-nav-bar {
+  border-bottom: 0;
+}
+
+.mat-tab-labels {
+  height: 10px;
+}
+
+::ng-deep .mat-tab-label {
+  @apply bg-indigo-600 text-white w-full;
+  border: 1px solid black;
+  border-radius: 5px;
+  min-height: 40px !important;
+  margin: 0px 1px;
+  -webkit-animation-duration: calc(1s * 0.75);
+  animation-duration: calc(1s * 0.75);
+  -webkit-animation-duration: calc(var(--animate-duration) * 0.75);
+  animation-duration: calc(var(--animate-duration) * 0.75);
+  -webkit-animation-name: bounceIn;
+  animation-name: bounceIn;
+}
+
+::ng-deep .mat-tab-label-active {
+  @apply bg-indigo-600 text-white;
+}
+
+$primary-blue: #6251dc;
+$light-blue: #f4fbfd;
+$dark-purple: #342981;
+$disable: #eaeaea;
+$font-disable: #b5b5b5;
+
+.login {
+  &-left {
+    width: 44%;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      position: relative;
+    }
+  }
+
+  &-right {
+    width: 56%;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      position: relative;
+    }
+
+    &-container {
+      padding: 140px 13.91vw 74px;
+
+      @media (max-width: 767px) {
+        padding: 0px 20px 48px;
+      }
+    }
+
+    &-heading {
+      font-style: normal;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 40px;
+      text-align: center;
+      color: white;
+
+      @media(max-width: 767px) {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &-error {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7c7c7c;
+    width: 100%;
+
+    svg {
+      margin-right: 5.33px;
+      padding-top: 1px;
+      margin-top: 1px;
+    }
+
+    &-icon {
+      margin-bottom: 12px;
+
+      @media (max-width: 767px) {
+        margin-bottom: 35px;
+      }
+    }
+  }
+
+  &-btn {
+    border-radius: 5px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #ffffff;
+    background: $primary-blue;
+    height: 50px;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      background: $dark-purple;
+    }
+
+    &:disabled {
+      background: $disable;
+      cursor: not-allowed;
+      color: $font-disable;
+    }
+
+    &-sosmed {
+      @apply bg-slate-700;
+      padding: 12px 30px;
+      border: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      border-radius: 4px;
+      min-height: 42px;
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      color: #7c7c7c;
+      display: inline-block;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.3s ease-in;
+
+      @media (max-width: 767px) {
+        font-size: 14px;
+        line-height: 18px;
+        min-height: 42px;
+      }
+
+      &-icon {
+        display: inline-block;
+        margin-bottom: -4px;
+        margin-right: 16px;
+      }
+
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
+  }
+
+  &-container {
+    ::ng-deep .mat-focused {
+      .mat-form-field-label {
+        color: #3f51b5 !important;
+      }
+    }
+
+    ::ng-deep .mat-form-field-label {
+      color: #b5b5b5 !important;
+      line-height: 22px;
+    }
+
+    ::ng-deep .mat-form-field-should-float {
+      &:not(.mat-focused) {
+        .mat-form-field-label {
+          color: #4c4c4c !important;
+        }
+      }
+    }
+
+    ::ng-deep .mat-icon {
+      color: #9ba0a5;
+      cursor: pointer;
+    }
+
+    ::ng-deep .mat-form-field-hide-placeholder .mat-form-field-label {
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: #ffffff;
+      margin-top: -8px;
+    }
+
+    ::ng-deep .mat-form-field-hint {
+      &-wrapper {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: #7c7c7c;
+      }
+
+      &-spacer {
+        display: none;
+      }
+    }
+
+    ::ng-deep .mat-form-field-subscript-wrapper {
+      position: relative;
+      padding-left: 0px;
+    }
+
+    ::ng-deep .mat-form-field {
+      &-flex {
+        height: 53.5px;
+      }
+
+      &-infix {
+        margin-top: -3px;
+      }
+    }
+
+    ::ng-deep {
+      .mat-form-field-appearance-outline .mat-form-field-outline {
+        color: white;
+      }
+
+      mat-form-field {
+
+        .mat-hint,
+        input,
+        ::placeholder,
+        .mat-form-field-label {
+          color: white;
+        }
+      }
+    }
+
+    ::ng-deep .mat-checkbox {
+      &-inner-container {
+        height: 20px;
+        width: 20px;
+      }
+
+      &-label {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 18px;
+        color: #7c7c7c;
+        padding-top: 1px;
+      }
+
+      &-checked {
+        .mat-checkbox-background {
+          background: $primary-blue;
+        }
+      }
+
+      &:active {
+        .mat-ripple-element {
+          background: #6251dc;
+        }
+      }
+
+      .mat-ripple-element {
+        background: #6251dc;
+      }
+
+      &-frame {
+        border: 1px solid #b5b5b5;
+        box-sizing: border-box;
+        border-radius: 2px;
+      }
+
+      &-background {
+        border: 1px solid #b5b5b5;
+        box-sizing: border-box;
+        border-radius: 2px;
+      }
+    }
+
+    .line-divider {
+      height: 1px;
+      width: 100%;
+      background-color: #d8d8d8;
+      -webkit-flex: 1;
+      -moz-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    .text-divider {
+      padding: 0 0.75rem;
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      color: #7c7c7c;
+    }
+  }
+
+  &-link {
+    padding-top: 1px;
+
+    a {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      text-decoration-line: underline;
+      color: #7c7c7c;
+      cursor: pointer;
+    }
+  }
+}
+
+input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: #4c4c4c;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 3s;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-text-size-adjust: none;
+}

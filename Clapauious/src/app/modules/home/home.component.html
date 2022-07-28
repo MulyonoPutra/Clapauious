@@ -1,0 +1,62 @@
+<div class="container">
+
+  <section>
+    <div class="bg-img">
+      <div class="center">
+        <p class="animate__animated animate__heartBeat animate__delay-1s">Get
+          endless entertainment, live sports,
+          education and the shows and movies you love.</p>
+      </div>
+      <div class="subtitle">
+        <span>Ready to watch? Enter your email to create or restart your
+          membership.</span>
+        <br>
+        <button class="login-btn animate__animated animate__jackInTheBox
+          animate__delay-1s">Get the bundle</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mr-5 mt-5 text-sm absolute right-0">
+      <a [routerLink]="['/movie-details']" class="font-medium text-indigo-600 hover:text-indigo-500"> View all <span
+          aria-hidden="true">&rarr;</span></a>
+    </div>
+    <div class="md:block lg:block hidden">
+      <div class="flex flex-row">
+        <div *ngFor="let data of movies | slice:1:5">
+          <app-card-animations [data]="data"></app-card-animations>
+        </div>
+      </div>
+    </div>
+    <div class="mx-8 sm:hidden">
+      <div *ngFor="let data of movies | slice:1:5">
+        <app-card-responsive [data]="data"></app-card-responsive>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="bg-sports">
+      <div class="center">
+        <p class="animate__animated animate__heartBeat animate__delay-1s">Live
+          Sports</p>
+      </div>
+      <div class="subtitle">
+        <span class="animate__animated animate__zoomInLeft animate__delay-1s">Catch
+          your games at home or on the go.
+          Stream live games from Premiere League, Serie A, La Liga, UEFA
+          Champions League and many more.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <pricing></pricing>
+  </section>
+
+  <section>
+    <app-footer></app-footer>
+  </section>
+
+</div>

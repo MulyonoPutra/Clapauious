@@ -1,0 +1,78 @@
+$primary-blue: #6251dc;
+$light-blue: #f4fbfd;
+$dark-purple: #342981;
+$disable: #eaeaea;
+$font-disable: #b5b5b5;
+
+.container {
+  .bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../assets/images/jpg/background-home.jpg'),
+      -webkit-linear-gradient(top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 1%,
+        rgba(0, 0, 0, 0) 35%,
+        rgba(0, 0, 0, 0) 100%);
+    background-blend-mode: color;
+    height: 100vh;
+
+    @media (max-width: 768px) {
+      height: 60vh;
+    }
+  }
+
+  .bg-sports {
+    margin-top:20vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../../assets/images/png/sports.png'),
+      -webkit-linear-gradient(top,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 1%,
+        rgba(0, 0, 0, 0) 35%,
+        rgba(0, 0, 0, 0) 100%);
+    background-blend-mode: color;
+    height: 100vh;
+  }
+
+  .center {
+    @apply text-gray-400 font-bold text-center justify-center;
+    padding: 20vh 20vh 0vh 20vh;
+    font-size: 3rem;
+
+    @media (max-width: 768px) {
+      @apply text-gray-400 text-center p-8 justify-center;
+      font-size: 1.5rem;
+    }
+
+  }
+
+  .subtitle {
+    @apply text-gray-400 text-center justify-center;
+    padding-left:0vh;
+    font-size: 1rem;
+  }
+}
+
+.login {
+  &-btn {
+    border-radius: 5px;
+    width: 50%;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    color: #ffffff;
+    background: $primary-blue;
+    height: 50px;
+    transition: all 0.3s ease-in;
+    margin-top: 20px;
+
+    &:hover {
+      background: $dark-purple;
+    }
+  }
+}

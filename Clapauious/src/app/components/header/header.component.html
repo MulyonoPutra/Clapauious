@@ -1,0 +1,311 @@
+
+<div class="relative bg-slate-900">
+  <div class="header">
+    <div class="container">
+      <div class="title">
+        <a href="#">
+          <img class="h-8 w-auto sm:h-10" [src]=logo alt="Logo">
+        </a>
+      </div>
+
+      <div class="-mr-2 my-2 md:hidden" (click)="showNavbar()">
+        <button type="button" class="open-btn" aria-expanded="false"
+          *ngIf="isDropdownHidden">
+          <span class="sr-only">Open menu</span>
+          <img src="../../../assets/icon/svg/burger-menu.svg" class="h-6 w-6"
+            alt="Burger Menu">
+        </button>
+      </div>
+
+      <nav class="hidden md:flex space-x-10">
+        <a (click)="navigate('profile')" class="header-list"> Profile </a>
+        <a (click)="navigate('payment')" class="header-list"> Payment </a>
+
+        <div class="relative">
+          <button (click)="showNavbar()" type="button" class="more-btn"
+            aria-expanded="false">
+            <span>More</span>
+            <img src="../../../assets/icon/svg/arrow-down.svg"
+              class="burger-menu" alt="Burger Menu">
+          </button>
+
+          <div *ngIf="!isDropdownHidden_" class="dropdown">
+            <div class="dropdown-wrapper">
+              <div class="dropdown-wrapper-container">
+                <a href="#" class="list">
+                  <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0
+                    24 24" stroke-width="2" stroke="currentColor"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172
+                      9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0
+                      11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <div class="ml-4">
+                      <p class="title">Help Center</p>
+                      <p class="subtitle">Lorem Ipsum is simply dummy text of
+                        the printing and typesetting industry. </p>
+                    </div>
+                  </a>
+
+                  <a href="#" class="list">
+                    <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0
+                      0 24 24" stroke-width="2" stroke="currentColor"
+                      aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0
+                        00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <div class="ml-4">
+                        <p class="title">Guides</p>
+                        <p class="subtitle">Neque porro quisquam est qui dolorem
+                          ipsum quia dolor sit amet, consectetur, adipisci
+                          velit...</p>
+                      </div>
+                    </a>
+
+                    <a href="#" class="list">
+                      <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0
+                          00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <div class="ml-4">
+                          <p class="title">Events</p>
+                          <p class="subtitle">Neque porro quisquam est qui
+                            dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit...</p>
+                        </div>
+                      </a>
+
+                      <a href="#" class="list">
+                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke-width="2"
+                          stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112
+                            2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0
+                            003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332
+                            9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                          </svg>
+                          <div class="ml-4">
+                            <p class="title">Security</p>
+                            <p class="subtitle">Neque porro quisquam est qui
+                              dolorem ipsum quia dolor sit amet, consectetur,
+                              adipisci velit...</p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+
+              <div *ngIf="isLoggedIn" class="dropdown-sign">
+                <div class="relative">
+                  <button (click)="showAction()" type="button" class="more-btn"
+                    aria-expanded="false">
+                    <span> {{profile?.name}}</span>
+                    <img src="../../../assets/icon/svg/arrow-down.svg"
+                      class="ml-2 h-3 w-3" alt="Burger Menu">
+                  </button>
+
+                  <div *ngIf="isDropdownUser" class="dropdown-sign-menu">
+                    <div class="dropdown-sign-menu-wrapper">
+                      <div class="background">
+                        <div>
+                          <ul role="list" class="mt-4 space-y-4">
+                            <li class="text-base truncate">
+                              <a (click)="navigate('profile')" class="text">
+                                Profile Settings </a>
+                            </li>
+                          </ul>
+                          <ul role="list" class="mt-4 space-y-4">
+                            <li class="text-base truncate">
+                              <a (click)="logout()" class="text"> Sign Out </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="!isLoggedIn" class="hidden md:flex items-center
+                justify-end md:flex-1 lg:w-0">
+                <button (click)="navigate('login')" class="btn-login"> Sign in
+                </button>
+                <button (click)="navigate('register')" class="btn-register">
+                  Sign up </button>
+              </div>
+            </div>
+          </div>
+
+          <div (click)="showNavbar()" class="absolute top-0 inset-x-0 p-2
+            transition transform origin-top-right md:hidden">
+            <div *ngIf="!isDropdownHidden" class="rounded-lg shadow-lg ring-1
+              ring-black ring-opacity-5 bg-slate-900 divide-y-2
+              divide-slate-50">
+              <div class="pt-5 pb-6 px-5">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <img class="h-8 w-auto" [src]=logo alt="Workflow">
+                  </div>
+                  <div class="-mr-2">
+                    <button type="button" class="bg-slate-900 rounded-md p-2
+                      inline-flex items-center justify-center text-gray-400
+                      hover:text-gray-500 hover:bg-gray-100 focus:outline-none
+                      focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <span class="sr-only">Close menu</span>
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="mt-6">
+                    <nav class="grid gap-y-8">
+                      <a href="#" class="-m-3 p-3 flex items-center rounded-md
+                        hover:bg-gray-50">
+                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                          xmlns="http://www.w3.org/2000/svg" fill="none"
+                          viewBox="0 0 24 24" stroke-width="2"
+                          stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002
+                            2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012
+                            2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0
+                            012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0
+                            01-2-2z" />
+                          </svg>
+                          <span class="ml-3 text-base font-medium text-white
+                            hover:text-gray-900"> Analytics </span>
+                        </a>
+
+                        <a href="#" class="-m-3 p-3 flex items-center rounded-md
+                          hover:bg-gray-50">
+                          <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                            xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188
+                              2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95
+                              4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                            </svg>
+                            <span class="ml-3 text-base font-medium text-white
+                              hover:text-gray-900"> Engagement </span>
+                          </a>
+
+                          <a href="#" class="-m-3 p-3 flex items-center
+                            rounded-md hover:bg-gray-50">
+                            <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                              xmlns="http://www.w3.org/2000/svg" fill="none"
+                              viewBox="0 0 24 24" stroke-width="2"
+                              stroke="currentColor" aria-hidden="true">
+                              <path stroke-linecap="round"
+                                stroke-linejoin="round" d="M9 12l2 2
+                                4-4m5.618-4.016A11.955 11.955 0 0112
+                                2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02
+                                0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332
+                                9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                                />
+                              </svg>
+                              <span class="ml-3 text-base font-medium text-white
+                                hover:text-gray-900"> Security </span>
+                            </a>
+
+                            <a href="#" class="-m-3 p-3 flex items-center
+                              rounded-md hover:bg-gray-50">
+                              <svg class="flex-shrink-0 h-6 w-6 text-indigo-600"
+                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round"
+                                  stroke-linejoin="round" d="M4 6a2 2 0
+                                  012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0
+                                  01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2
+                                  0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0
+                                  012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0
+                                  01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2
+                                  2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                </svg>
+                                <span class="ml-3 text-base font-medium
+                                  text-white hover:text-gray-900"> Integrations
+                                </span>
+                              </a>
+
+                              <a href="#" class="-m-3 p-3 flex items-center
+                                rounded-md hover:bg-gray-50">
+                                <svg class="flex-shrink-0 h-6 w-6
+                                  text-indigo-600"
+                                  xmlns="http://www.w3.org/2000/svg" fill="none"
+                                  viewBox="0 0 24 24" stroke-width="2"
+                                  stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round"
+                                    stroke-linejoin="round" d="M4
+                                    4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0
+                                    0H9m11 11v-5h-.581m0 0a8.003 8.003 0
+                                    01-15.357-2m15.357 2H15" />
+                                  </svg>
+                                  <span class="ml-3 text-base font-medium
+                                    text-white hover:text-gray-900"> Automations
+                                  </span>
+                                </a>
+                              </nav>
+                            </div>
+                          </div>
+                          <div class="py-6 px-5 space-y-6">
+                            <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                              <a routerLink="/profile" class="text-base
+                                font-medium text-white"> Profile </a>
+
+                              <a href="#" class="text-base font-medium
+                                text-white"> Docs </a>
+
+                              <a href="#" class="text-base font-medium
+                                text-white"> Help Center </a>
+
+                              <a href="#" class="text-base font-medium
+                                text-white"> Guides </a>
+
+                              <a href="#" class="text-base font-medium
+                                text-white"> Events </a>
+
+                              <a href="#" class="text-base font-medium
+                                text-white"> Security </a>
+                            </div>
+
+                            <div *ngIf="!isLoggedIn">
+                              <a href="#" class="w-full flex items-center
+                                justify-center px-4 py-2 border
+                                border-transparent rounded-md shadow-sm
+                                text-base font-medium text-white bg-indigo-600
+                                hover:bg-indigo-700"> Sign up </a>
+                              <p class="mt-6 text-center text-base font-medium
+                                text-gray-500">
+                                Existing customer?
+                                <a href="#" class="text-indigo-600
+                                  hover:text-indigo-500"> Sign in </a>
+                              </p>
+                            </div>
+                            <div *ngIf="isLoggedIn">
+                              <p class="mt-6 text-center text-base font-medium
+                                text-white">
+                                <span> {{profile?.name}}</span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>

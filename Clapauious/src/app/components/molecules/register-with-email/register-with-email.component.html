@@ -1,0 +1,72 @@
+<form class="login-container md:pt-10 lg:pt-10 pt-9" autocomplete="on" [formGroup]="formGroup">
+  <div>
+    <div>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Email" autocomplete="email" formControlName="name">
+      </mat-form-field>
+      <error-messages [control]="$any(formGroup).controls.name"></error-messages>
+      <!-- <div *ngIf="formGroup.get('username')?.valid" class="invalid-feedback"> -->
+        <!-- <div>username is required</div> -->
+      <!-- </div> -->
+    </div>
+    <div>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" autocomplete="email" [formControlName]="'email'">
+      </mat-form-field>
+    </div>
+    <error-messages [control]="$any(formGroup)?.controls?.email"></error-messages>
+    <div>
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControlName]="'password'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div class="mb-6">
+      <div class="flex">
+        <div class="w-1/2 text-left">
+        </div>
+        <div class="login-link w-1/2 text-right">
+          <a routerLink="/forgot-password">
+            Forgot Password?
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button class="login-btn" (click)="onSubmit()" [disabled]='formGroup.invalid'>Register</button>
+    </div>
+    <div class="mb-6 mt-6">
+      <div class="flex items-center">
+        <div class="line-divider"></div>
+        <span class="text-divider">
+          or Sign Up with
+        </span>
+        <div class="line-divider"></div>
+      </div>
+    </div>
+    <div>
+      <a class="login-btn-sosmed">
+        <div class="login-btn-sosmed-icon">
+          <img src="/assets/icon/svg/google.svg" alt="">
+        </div>
+        Register with Google
+      </a>
+    </div>
+    <div class="mt-4">
+      <a class="login-btn-sosmed">
+        <div class="login-btn-sosmed-icon">
+          <img src="/assets/icon/svg/fb.svg" alt="">
+        </div>
+        Register with Facebook
+      </a>
+    </div>
+  </div>
+
+
+
+</form>

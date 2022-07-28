@@ -1,0 +1,124 @@
+<section class="py-1 bg-slate-700">
+  <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
+    <form [formGroup]="profileForms" autocomplete="off" >
+      <div class="profile">
+        <div class="header">
+          <div class="text-center flex justify-between">
+            <h6 class="title">
+              Profile Settings
+            </h6>
+            <button
+              class="update-btn"
+              type="button" [disabled]="!profileForms.valid" (click)="updated()">
+              Update
+            </button>
+          </div>
+        </div>
+        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+            <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
+              User Information
+            </h6>
+            <div class="flex space-x-4">
+              <div>
+                <img class="inline object-cover w-28 h-28 mr-2 rounded-full" [src]=imagesPreview alt="Profile image" />
+                  <label class="block uppercase text-white text-xs font-bold mt-3 ml-2 cursor-pointer"
+                  htmlfor="grid-password">
+                  Upload Avatar
+                  <input type="file" class="upload" accept="image/png, image/gif, image/jpeg" (change)="changeFile($event)" />
+                  </label>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap">
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <mat-form-field class="w-full" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input matInput placeholder="Username" formControlName="name">
+                      </mat-form-field>
+                    </div>
+                    <error-messages [control]="$any(profileForms).control?.name"></error-messages>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <mat-form-field class="w-full" appearance="outline">
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="Email address" formControlName="email" readonly>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <mat-form-field class="w-full" appearance="outline">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="Phone Number" formControlName="phone">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <hr class="mt-6 border-b-1 border-blueGray-300">
+            <h6 class="text-white text-sm mt-3 mb-6 font-bold uppercase">
+              Contact Information
+            </h6>
+            <div class="flex flex-wrap">
+              <div class="w-full lg:w-12/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" formControlName="address">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="w-full lg:w-12/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>State</mat-label>
+                    <input matInput placeholder="State" formControlName="state">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="w-full lg:w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>City</mat-label>
+                    <input matInput placeholder="City" formControlName="city">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="w-full lg:w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>Country</mat-label>
+                    <input matInput placeholder="Country" formControlName="country">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="w-full lg:w-4/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput placeholder="Postal Code" formControlName="zipCode">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <hr class="mb-3 mt-6 border-b-1 border-blueGray-300">
+            <div class="flex flex-wrap">
+              <div class="w-full lg:w-12/12 px-4">
+                <div class="relative w-full mb-3">
+                  <mat-form-field class="w-full" appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <textarea matInput placeholder="About Me" formControlName="description"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

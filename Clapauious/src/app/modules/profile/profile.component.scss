@@ -1,0 +1,80 @@
+$primary-blue: #6251dc;
+$light-blue: #f4fbfd;
+$dark-purple: #342981;
+$disable: #eaeaea;
+$font-disable: #b5b5b5;
+
+::ng-deep {
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+     color: white;
+  }
+  mat-form-field {
+     .mat-hint, input, ::placeholder, .mat-form-field-label {
+        color: white;
+     }
+  }
+
+  .mat-input-element::placeholder{
+    color: $font-disable;
+  }
+}
+
+
+.update {
+  &-btn {
+    @apply bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150;
+
+    &:disabled {
+      background: $disable;
+      cursor: not-allowed;
+      color: $font-disable;
+    }
+  }
+}
+
+input {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 3s;
+    -webkit-text-fill-color: #fff !important;
+    -webkit-text-size-adjust: none;
+}
+
+input:read-only {
+  color: $font-disable;
+}
+
+textarea {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: white;
+}
+
+
+.profile {
+  @apply relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-slate-900 border-0;
+
+  .header {
+    @apply rounded-t  bg-slate-900 mb-0 px-6 py-6;
+
+    .title {
+      @apply text-white text-xl font-bold;
+    }
+  }
+
+  .upload {
+    display: block;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
